@@ -1,13 +1,58 @@
 package dsa.binarySearch;
 
+/**
+ * 
+ * Binary Search various DSA problems 
+ *
+ */
 public class BinarySearchProblems {
 
 	public static void main(String[] args) {
 			
 	
 			//floorSquareRootOfInt(20);
-			findFirstAndLastIndexOfKey();
+			//findFirstAndLastIndexOfKey();
+			findKeyInInfiniteSortedArray();
 		}
+
+	private static void findKeyInInfiniteSortedArray() {
+		
+		int[] array = {10,22,27,33,38,47,49,55,59,63,72,80,88,92,99,101,155};
+		
+		int key=101;
+		System.err.println("seraching key in infinte sorted array:"+key);
+		
+		int low=0, high=1;
+		
+		while(array[high] < key) {
+			System.out.println("Low="+low +" high="+high);
+			low = high;
+			high = 2* high; //increase pair search exponentially causing time to reduce 
+		}
+		
+		int indexofKey=binarySerach(array,low,high,key);
+		
+		System.out.println("Key index in infinite sorted array:"+indexofKey);
+		
+	}
+
+	private static int binarySerach(int[] array, int low, int high, int key) {
+		
+		System.out.println("Low="+low +" high="+high);
+		int ans=-1;
+		while (low<=high) {
+			int mid = low + (high-low)/2;
+			System.out.println("low: "+low + " high: "+high + " mid:"+mid);
+			if(array[mid] == key) {
+				ans=mid;break;
+			}else if ( array[mid]< key) {
+				low = mid+1;
+			}else if (array[mid] > key) {
+				high = mid-1;
+			}
+		}
+		return ans;
+	}
 
 	private static void	findFirstAndLastIndexOfKey(){
 		//modify inputs and key manually for playaround 
