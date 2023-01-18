@@ -1,11 +1,63 @@
+package dsa.binarySearch;
 
 public class BinarySearchProblems {
 
 	public static void main(String[] args) {
 			
 	
-			floorSquareRootOfInt(20);
+			//floorSquareRootOfInt(20);
+			findFirstAndLastIndexOfKey();
 		}
+
+	private static void	findFirstAndLastIndexOfKey(){
+		//modify inputs and key manually for playaround 
+		
+		int[] array = {1,1,1,2,2,5,5,5,6,7,8,8,9};
+		
+		int key=9;
+		System.err.println("Finding first last index of key:"+key);
+		System.err.println("first index of key: "+ key +" at array location:"+ helperBinarySearch(array,key,true));
+		
+		System.err.println("last index of key: "+ key +" at array location:"+ helperBinarySearch(array,key,false));
+
+		
+	}
+	
+	private static int helperBinarySearch(int[] array, int key, boolean isfirst) {
+		int low=0, high=array.length-1;
+		int ans=-1;
+		if(isfirst)
+			System.out.println("finding first index of key:"+key);
+		else System.out.println("finding last index of key:"+key);
+		
+		
+		while (low<=high) {
+			
+			int mid= low+(high-low)/2;
+			System.out.println("low: "+low + " high: "+high + " mid:"+mid);
+			if(array[mid] > key) {
+				high = mid-1;
+			}else if (array[mid] < key) {
+				low = mid+1;
+			}else {
+				// store index in ans then check if isfirst or not then move low or high accordingly
+				System.out.println("key found at :"+mid);
+				ans = mid;
+				if(isfirst) {
+					high=mid-1;
+					System.out.println("high = mid-1");
+				}else {
+					low = mid+1;
+					System.out.println("low=mid+1");
+				}
+					
+				
+			}
+			
+		}
+		
+		return ans;
+	}
 
 	private static void floorSquareRootOfInt(int i) {
 	
