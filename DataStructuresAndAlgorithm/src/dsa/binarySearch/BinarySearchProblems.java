@@ -12,10 +12,7 @@ public class BinarySearchProblems {
 	
 			//floorSquareRootOfInt(20);
 			//findFirstAndLastIndexOfKey();
-			//findKeyInInfiniteSortedArray();
-		int a = 10;
-		int divideBy2 = a >> 1;
-		 System.out.println("10 >> 1"+ divideBy2);
+			findKeyInInfiniteSortedArray();
 		}
 
 	private static void findKeyInInfiniteSortedArray() {
@@ -30,7 +27,16 @@ public class BinarySearchProblems {
 		while(array[high] < key) {
 			System.out.println("Low="+low +" high="+high);
 			low = high;
-			high = 2* high; //increase pair search exponentially causing time to reduce 
+			// following line same as high=2*high;
+			/**
+			 * 01 = 1
+			 * 010= 2
+			 * 0100= 4 = 2^2
+			 * 1000= 8 = 2^3
+			 * 10000 = 2^4= 2*2*2*2 = 16
+			 * 
+			 */
+			high = high<<1; //increase pair search exponentially causing time to reduce 
 		}
 		
 		int indexofKey=binarySerach(array,low,high,key);
