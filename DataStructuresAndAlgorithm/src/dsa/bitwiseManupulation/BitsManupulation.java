@@ -1,4 +1,4 @@
-package dsa.binarySearch;
+package dsa.bitwiseManupulation;
 
 public class BitsManupulation {
 
