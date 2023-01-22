@@ -12,7 +12,10 @@ public class BinarySearchProblems {
 	
 			//floorSquareRootOfInt(20);
 			//findFirstAndLastIndexOfKey();
-			findKeyInInfiniteSortedArray();
+			//findKeyInInfiniteSortedArray();
+		int a = 10;
+		int divideBy2 = a >> 1;
+		 System.out.println("10 >> 1"+ divideBy2);
 		}
 
 	private static void findKeyInInfiniteSortedArray() {
